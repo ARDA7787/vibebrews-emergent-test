@@ -1,11 +1,11 @@
-# 🖼️ Image Placeholders for VibeGames Website
+# 🖼️ Image Placeholders for VibeBrews Website
 
 This document lists all the image placeholders in the website where you need to add actual images.
 
 ## 📱 Hero Section (`/app/frontend/components/Hero.tsx`)
 
 **Location:** Line ~85-95
-**Description:** iPhone/Android mockup showing VibeGames app home screen with vertical feed
+**Description:** iPhone/Android mockup showing VibeBrews app home screen with vertical feed
 **Dimensions:** 400x800px (phone mockup)
 **What to show:** 
 - TikTok-style swipeable interface
@@ -103,7 +103,7 @@ You can use these free services:
 1. **favicon.ico**
    - Dimensions: 32x32px or 16x16px
    - Format: ICO
-   - Brand: VibeGames logo
+   - Brand: VibeBrews logo
 
 2. **apple-touch-icon.png**
    - Dimensions: 180x180px
@@ -124,13 +124,13 @@ You can use these free services:
    - Dimensions: 1200x630px
    - Format: PNG or JPG
    - Use: Open Graph (Facebook, LinkedIn sharing)
-   - Content: VibeGames branding + tagline
+   - Content: VibeBrews branding + tagline
 
 6. **twitter-image.png**
    - Dimensions: 1200x600px
    - Format: PNG or JPG
    - Use: Twitter Card
-   - Content: VibeGames branding + tagline
+   - Content: VibeBrews branding + tagline
 
 ---
 

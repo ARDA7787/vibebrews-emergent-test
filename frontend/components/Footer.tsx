@@ -37,14 +37,14 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="relative border-t border-white/10">
+    <footer className="relative border-t border-vibe-teal/20 bg-vibe-gray">
       <div className="container mx-auto px-4 py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-6 gap-8 mb-12">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <h3 className="text-2xl font-bold gradient-text mb-4">VibeGames</h3>
-            <p className="text-gray-400 mb-6 max-w-xs">
-              AI-powered game creation meets TikTok-style discovery. Turn your ideas into playable games in minutes.
+            <h3 className="text-2xl font-bold gradient-text mb-4">VibeBrews</h3>
+            <p className="text-gray-600 mb-6 max-w-xs">
+              Brew the Vibe - Create, Play, Explore. AI-powered game creation meets an instant browse-and-play universe. Infinite possibilities.
             </p>
             <div className="flex gap-4">
               {socialLinks.map((social, index) => {
@@ -55,7 +55,7 @@ export default function Footer() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-white/20 transition-colors"
+                    className="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-vibe-teal/20 transition-colors"
                     aria-label={social.label}
                     data-testid={`social-${social.label.toLowerCase()}`}
                   >
@@ -72,7 +72,7 @@ export default function Footer() {
             <ul className="space-y-2">
               {footerLinks.product.map((link, index) => (
                 <li key={index}>
-                  <a href={link.href} className="text-gray-400 hover:text-white transition-colors">
+                  <a href={link.href} className="text-gray-600 hover:text-vibe-blue transition-colors">
                     {link.label}
                   </a>
                 </li>
@@ -86,7 +86,7 @@ export default function Footer() {
             <ul className="space-y-2">
               {footerLinks.company.map((link, index) => (
                 <li key={index}>
-                  <a href={link.href} className="text-gray-400 hover:text-white transition-colors">
+                  <a href={link.href} className="text-gray-600 hover:text-vibe-blue transition-colors">
                     {link.label}
                   </a>
                 </li>
@@ -100,7 +100,7 @@ export default function Footer() {
             <ul className="space-y-2">
               {footerLinks.resources.map((link, index) => (
                 <li key={index}>
-                  <a href={link.href} className="text-gray-400 hover:text-white transition-colors">
+                  <a href={link.href} className="text-gray-600 hover:text-vibe-blue transition-colors">
                     {link.label}
                   </a>
                 </li>
@@ -114,7 +114,7 @@ export default function Footer() {
             <ul className="space-y-2">
               {footerLinks.legal.map((link, index) => (
                 <li key={index}>
-                  <a href={link.href} className="text-gray-400 hover:text-white transition-colors">
+                  <a href={link.href} className="text-gray-600 hover:text-vibe-blue transition-colors">
                     {link.label}
                   </a>
                 </li>
@@ -124,12 +124,12 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-gray-400 text-sm">
-            &copy; {new Date().getFullYear()} VibeGames. All rights reserved.
+        <div className="pt-8 border-t border-vibe-teal/20 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-gray-600 text-sm">
+            &copy; {new Date().getFullYear()} VibeBrews. All rights reserved.
           </p>
-          <div className="flex items-center gap-4 text-sm text-gray-400">
-            <a href="https://play.google.com/store/apps/details?id=com.nextap.vibebrews&pcampaignid=web_share" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+          <div className="flex items-center gap-4 text-sm text-gray-600">
+            <a href="https://play.google.com/store/apps/details?id=com.nextap.vibebrews&pcampaignid=web_share" target="_blank" rel="noopener noreferrer" className="hover:text-vibe-blue transition-colors">
               Download on Google Play
             </a>
           </div>

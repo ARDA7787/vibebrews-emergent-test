@@ -10,9 +10,9 @@ const features = [
     subtitle: 'From Idea to Game in 5 Minutes',
     description: 'Conversational AI that understands natural language. Describe your game idea like talking to a friend. Real-time generation with live preview. Create up to 3 games concurrently.',
     icon: MessageSquare,
-    color: 'vibe-purple',
+    color: 'blue',
     stats: ['5 min creation', '3 concurrent projects', 'No coding required'],
-    imageDesc: '[IMAGE: Phone mockup showing CreateChat interface with typing animation of game prompts. Show AI responding and generating game in real-time. Dimension: 500x600px]',
+    imagePath: '/AI_Games.PNG',
     reverse: false,
   },
   {
@@ -20,9 +20,9 @@ const features = [
     subtitle: 'Zero Download, Instant Play',
     description: 'Swipe-to-play infinite feed just like TikTok. Instant WebView rendering with no app installs. Social engagement with likes, comments, and shares. Personalized game recommendations.',
     icon: Infinity,
-    color: 'vibe-blue',
+    color: 'teal',
     stats: ['0s load time', '814 games daily', 'Instant WebView'],
-    imageDesc: '[IMAGE: Phone showing vertical feed with smooth scroll animation between game cards. Display social interaction buttons. Dimension: 500x600px]',
+    imagePath: null, // No image for this feature
     reverse: true,
   },
   {
@@ -30,9 +30,9 @@ const features = [
     subtitle: 'Professional Tools, Zero Learning Curve',
     description: 'Advanced workspace with background generation. Manage multiple projects simultaneously. Real-time progress tracking with project states. Duplicate and remix existing games.',
     icon: Sparkles,
-    color: 'vibe-amber',
+    color: 'blue-dark',
     stats: ['3 concurrent projects', 'Background processing', 'Real-time tracking'],
-    imageDesc: '[IMAGE: Desktop/tablet view of project grid showing 3 concurrent game cards with status chips and progress bars. Dimension: 600x400px]',
+    imagePath: '/Multi_Project.PNG',
     reverse: false,
   },
   {
@@ -40,9 +40,9 @@ const features = [
     subtitle: 'Join 15+ Active Creators',
     description: 'Creator profiles with comprehensive stats. Comment threads on every game. Like and favorite system. Follow your favorite creators. Real-time engagement tracking.',
     icon: Heart,
-    color: 'vibe-green',
+    color: 'teal',
     stats: ['15+ creators', '65 total likes', 'Growing community'],
-    imageDesc: '[IMAGE: Profile cards showing avatars, bios, and statistics. Include comment threads and engagement metrics. Dimension: 500x500px]',
+    imagePath: '/Social_Gaming.png',
     reverse: true,
   },
 ]
@@ -68,6 +68,71 @@ function FeatureRow({ feature, Icon, index }: any) {
     threshold: 0.2,
   })
 
+  // Define color classes based on feature.color
+  const colorClasses = {
+    blue: {
+      badge: 'bg-vibe-blue/10 border-vibe-blue/30',
+      icon: 'text-vibe-blue',
+      subtitle: 'text-vibe-blue',
+      bgGradient: 'from-vibe-blue/10',
+      glow: 'bg-vibe-blue',
+    },
+    teal: {
+      badge: 'bg-vibe-teal/10 border-vibe-teal/30',
+      icon: 'text-vibe-teal',
+      subtitle: 'text-vibe-teal',
+      bgGradient: 'from-vibe-teal/10',
+      glow: 'bg-vibe-teal',
+    },
+    'blue-dark': {
+      badge: 'bg-vibe-blue-dark/10 border-vibe-blue-dark/30',
+      icon: 'text-vibe-blue-dark',
+      subtitle: 'text-vibe-blue-dark',
+      bgGradient: 'from-vibe-blue-dark/10',
+      glow: 'bg-vibe-blue-dark',
+    },
+  }
+
+  const colors = colorClasses[feature.color as keyof typeof colorClasses]
+
+  // For Infinite Discovery Feed, show full-width text layout
+  if (!feature.imagePath) {
+    return (
+      <div ref={ref} className="mb-32 last:mb-0">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+          className="max-w-4xl mx-auto text-center"
+        >
+          <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full ${colors.badge} border mb-6`}>
+            <Icon className={`w-5 h-5 ${colors.icon}`} />
+            <span className="text-sm font-medium">Feature Highlight</span>
+          </div>
+
+          <h3 className="text-4xl md:text-5xl font-bold mb-4 font-[family-name:var(--font-space-grotesk)]">
+            {feature.title}
+          </h3>
+          <p className={`text-xl font-semibold mb-6 ${colors.subtitle}`}>
+            {feature.subtitle}
+          </p>
+          <p className="text-lg text-gray-600 mb-8 leading-relaxed max-w-3xl mx-auto">
+            {feature.description}
+          </p>
+
+          {/* Stats */}
+          <div className="flex flex-wrap gap-4 justify-center">
+            {feature.stats.map((stat: string, i: number) => (
+              <div key={i} className="glass px-4 py-2 rounded-full">
+                <span className="text-sm font-medium">{stat}</span>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+      </div>
+    )
+  }
+
   return (
     <div ref={ref} className="mb-32 last:mb-0">
       <div className={`grid lg:grid-cols-2 gap-12 items-center ${feature.reverse ? 'lg:flex-row-reverse' : ''}`}>
@@ -78,18 +143,18 @@ function FeatureRow({ feature, Icon, index }: any) {
           transition={{ duration: 0.8 }}
           className={feature.reverse ? 'lg:order-2' : ''}
         >
-          <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full bg-${feature.color}/10 border border-${feature.color}/30 mb-6`}>
-            <Icon className={`w-5 h-5 text-${feature.color}`} />
+          <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full ${colors.badge} border mb-6`}>
+            <Icon className={`w-5 h-5 ${colors.icon}`} />
             <span className="text-sm font-medium">Feature Highlight</span>
           </div>
 
           <h3 className="text-4xl md:text-5xl font-bold mb-4 font-[family-name:var(--font-space-grotesk)]">
             {feature.title}
           </h3>
-          <p className={`text-xl font-semibold mb-6 text-${feature.color}`}>
+          <p className={`text-xl font-semibold mb-6 ${colors.subtitle}`}>
             {feature.subtitle}
           </p>
-          <p className="text-lg text-gray-300 mb-8 leading-relaxed">
+          <p className="text-lg text-gray-600 mb-8 leading-relaxed">
             {feature.description}
           </p>
 
@@ -103,7 +168,7 @@ function FeatureRow({ feature, Icon, index }: any) {
           </div>
         </motion.div>
 
-        {/* Image Mockup */}
+        {/* Image */}
         <motion.div
           initial={{ opacity: 0, x: feature.reverse ? -50 : 50 }}
           animate={inView ? { opacity: 1, x: 0 } : {}}
@@ -111,15 +176,14 @@ function FeatureRow({ feature, Icon, index }: any) {
           className={feature.reverse ? 'lg:order-1' : ''}
         >
           <div className="relative">
-            {/* Placeholder with description */}
-            <div className="glass rounded-3xl p-8 min-h-[400px] flex items-center justify-center relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-${feature.color}/10 to-transparent"></div>
-              <div className="relative z-10 text-center">
-                <Icon className={`w-20 h-20 mx-auto mb-4 text-${feature.color}`} />
-                <p className="text-sm text-gray-400 max-w-md">{feature.imageDesc}</p>
-              </div>
+            <div className="glass rounded-3xl overflow-hidden relative shadow-2xl group">
+              <img
+                src={feature.imagePath}
+                alt={feature.title}
+                className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className={`absolute -z-10 inset-0 ${colors.glow} blur-3xl opacity-20 animate-pulse-slow`}></div>
             </div>
-            <div className={`absolute -z-10 inset-0 bg-${feature.color} blur-3xl opacity-20 animate-pulse-slow`}></div>
           </div>
         </motion.div>
       </div>

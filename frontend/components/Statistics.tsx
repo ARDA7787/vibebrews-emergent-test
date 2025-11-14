@@ -52,9 +52,9 @@ export default function Statistics() {
 
   return (
     <section className="py-24 relative" ref={ref}>
-      {/* Dark Background with Glow */}
-      <div className="absolute inset-0 bg-gradient-to-b from-vibe-dark via-black to-vibe-dark">
-        <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle at 50% 50%, rgba(124, 58, 237, 0.15) 0%, transparent 70%)' }}></div>
+      {/* Light Background with Blue Glow */}
+      <div className="absolute inset-0 bg-gradient-to-b from-vibe-gray via-white to-vibe-gray">
+        <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle at 50% 50%, rgba(37, 99, 235, 0.08) 0%, transparent 70%)' }}></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -67,7 +67,7 @@ export default function Statistics() {
           <h2 className="text-4xl md:text-5xl font-bold mb-4 font-[family-name:var(--font-space-grotesk)]">
             Join the <span className="gradient-text">Revolution</span>
           </h2>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Thousands of creators and players building the future of social gaming
           </p>
         </motion.div>
@@ -79,13 +79,13 @@ export default function Statistics() {
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="glass rounded-2xl p-6 text-center hover:scale-105 transition-transform duration-300 border border-white/10 hover:border-vibe-purple/50"
+              className="glass rounded-2xl p-6 text-center hover:scale-105 transition-transform duration-300 border border-vibe-teal/20 hover:border-vibe-teal/50"
               data-testid={`stat-${index}`}
             >
               <div className="text-3xl md:text-4xl font-bold gradient-text mb-2">
                 <Counter value={stat.value} inView={inView} suffix={stat.suffix} prefix={stat.prefix} />
               </div>
-              <div className="text-sm text-gray-400">{stat.label}</div>
+              <div className="text-sm text-gray-600">{stat.label}</div>
             </motion.div>
           ))}
         </div>

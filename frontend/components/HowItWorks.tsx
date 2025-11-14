@@ -41,7 +41,7 @@ export default function HowItWorks() {
   return (
     <section className="py-24 relative overflow-hidden" ref={ref}>
       {/* Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-b from-vibe-dark via-vibe-purple/5 to-vibe-dark"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-vibe-gray via-vibe-blue/5 to-vibe-gray"></div>
 
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
@@ -53,7 +53,7 @@ export default function HowItWorks() {
           <h2 className="text-4xl md:text-5xl font-bold mb-4 font-[family-name:var(--font-space-grotesk)]">
             How It <span className="gradient-text">Works</span>
           </h2>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             From idea to playable game in 5 simple steps
           </p>
         </motion.div>
@@ -66,7 +66,7 @@ export default function HowItWorks() {
               initial={{ scaleX: 0 }}
               animate={inView ? { scaleX: 1 } : {}}
               transition={{ duration: 1.5, delay: 0.3 }}
-              className="absolute top-16 left-0 right-0 h-1 bg-gradient-to-r from-vibe-purple via-vibe-blue to-vibe-green origin-left"
+              className="absolute top-16 left-0 right-0 h-1 bg-gradient-to-r from-vibe-blue via-vibe-teal to-vibe-blue-dark origin-left"
             ></motion.div>
 
             <div className="grid grid-cols-5 gap-4">
@@ -81,12 +81,12 @@ export default function HowItWorks() {
                     className="flex flex-col items-center text-center"
                   >
                     <div className="relative z-10 w-32 h-32 rounded-full glass flex items-center justify-center mb-6 group hover:scale-110 transition-all duration-300">
-                      <Icon className="w-12 h-12 text-vibe-purple group-hover:text-vibe-blue transition-colors" />
-                      <div className="absolute inset-0 rounded-full bg-gradient-to-r from-vibe-purple to-vibe-blue opacity-0 group-hover:opacity-20 transition-opacity"></div>
+                      <Icon className="w-12 h-12 text-vibe-teal group-hover:text-vibe-blue transition-colors" />
+                      <div className="absolute inset-0 rounded-full bg-gradient-to-r from-vibe-blue to-vibe-teal opacity-0 group-hover:opacity-20 transition-opacity"></div>
                     </div>
-                    <div className="text-3xl font-bold text-vibe-purple mb-2">{index + 1}</div>
+                    <div className="text-3xl font-bold text-vibe-blue mb-2">{index + 1}</div>
                     <h3 className="text-xl font-bold mb-2">{step.title}</h3>
-                    <p className="text-sm text-gray-400">{step.description}</p>
+                    <p className="text-sm text-gray-600">{step.description}</p>
                   </motion.div>
                 )
               })}
@@ -108,13 +108,13 @@ export default function HowItWorks() {
               >
                 <div className="flex-shrink-0">
                   <div className="w-16 h-16 rounded-full glass flex items-center justify-center">
-                    <Icon className="w-8 h-8 text-vibe-purple" />
+                    <Icon className="w-8 h-8 text-vibe-teal" />
                   </div>
                 </div>
                 <div className="flex-1 pt-2">
-                  <div className="text-2xl font-bold text-vibe-purple mb-1">{index + 1}</div>
+                  <div className="text-2xl font-bold text-vibe-blue mb-1">{index + 1}</div>
                   <h3 className="text-xl font-bold mb-2">{step.title}</h3>
-                  <p className="text-gray-400">{step.description}</p>
+                  <p className="text-gray-600">{step.description}</p>
                 </div>
               </motion.div>
             )

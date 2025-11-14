@@ -1,5 +1,5 @@
 export default function sitemap() {
-  const baseUrl = 'https://vibegames.com'
+  const baseUrl = 'https://vibebrews.com'
 
   return [
     {

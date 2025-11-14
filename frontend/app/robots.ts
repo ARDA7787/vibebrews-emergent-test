@@ -6,6 +6,6 @@ export default function robots() {
         allow: '/',
       },
     ],
-    sitemap: 'https://vibegames.com/sitemap.xml',
+    sitemap: 'https://vibebrews.com/sitemap.xml',
   }
 }

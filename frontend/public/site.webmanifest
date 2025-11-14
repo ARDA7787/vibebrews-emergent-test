@@ -1,6 +1,6 @@
 {
-  "name": "VibeGames",
-  "short_name": "VibeGames",
+  "name": "VibeBrews",
+  "short_name": "VibeBrews",
   "description": "AI-powered game creation platform",
   "start_url": "/",
   "display": "standalone",

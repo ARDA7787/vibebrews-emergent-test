@@ -13,13 +13,13 @@ const values = [
   },
   {
     icon: Wand2,
-    color: 'vibe-purple',
+    color: 'vibe-teal',
     title: 'Chat & Create',
     description: 'Describe your game idea. Watch AI bring it to life in minutes.',
   },
   {
     icon: Users,
-    color: 'vibe-green',
+    color: 'vibe-blue-dark',
     title: 'Connect & Share',
     description: 'Join a vibrant community. Share creations. Build your audience.',
   },
@@ -42,7 +42,7 @@ export default function ValueProposition() {
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 font-[family-name:var(--font-space-grotesk)]">
             Three Ways to Experience
-            <span className="gradient-text"> VibeGames</span>
+            <span className="gradient-text"> VibeBrews</span>
           </h2>
         </motion.div>
 
@@ -62,7 +62,7 @@ export default function ValueProposition() {
                   <Icon className={`w-8 h-8 text-${value.color}`} />
                 </div>
                 <h3 className="text-2xl font-bold mb-4">{value.title}</h3>
-                <p className="text-gray-400 leading-relaxed">{value.description}</p>
+                <p className="text-gray-600 leading-relaxed">{value.description}</p>
               </motion.div>
             )
           })}

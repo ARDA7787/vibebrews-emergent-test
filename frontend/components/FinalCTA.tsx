@@ -13,29 +13,35 @@ export default function FinalCTA() {
   return (
     <section className="py-32 relative overflow-hidden" ref={ref}>
       {/* Animated Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-vibe-purple via-vibe-blue to-vibe-green opacity-20">
-        <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle at 20% 50%, rgba(124, 58, 237, 0.3) 0%, transparent 50%), radial-gradient(circle at 80% 50%, rgba(59, 130, 246, 0.3) 0%, transparent 50%)' }}></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-vibe-blue via-vibe-blue-dark to-vibe-teal opacity-15">
+        <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle at 20% 50%, rgba(37, 99, 235, 0.2) 0%, transparent 50%), radial-gradient(circle at 80% 50%, rgba(13, 148, 136, 0.2) 0%, transparent 50%)' }}></div>
       </div>
 
-      {/* Floating Elements */}
+      {/* Floating Elements - deterministic positions to avoid hydration mismatch */}
       <div className="absolute inset-0 overflow-hidden">
-        {[...Array(15)].map((_, i) => (
+        {[
+          { left: '8%', top: '22%' },
+          { left: '18%', top: '48%' },
+          { left: '28%', top: '70%' },
+          { left: '38%', top: '30%' },
+          { left: '48%', top: '82%' },
+          { left: '58%', top: '18%' },
+          { left: '68%', top: '55%' },
+          { left: '78%', top: '36%' },
+          { left: '88%', top: '62%' },
+          { left: '12%', top: '85%' },
+          { left: '22%', top: '12%' },
+          { left: '32%', top: '40%' },
+          { left: '52%', top: '50%' },
+          { left: '72%', top: '75%' },
+          { left: '92%', top: '25%' },
+        ].map((pos, i) => (
           <motion.div
             key={i}
             className="absolute w-3 h-3 bg-white/20 rounded-full"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              y: [0, -40, 0],
-              opacity: [0.2, 0.6, 0.2],
-            }}
-            transition={{
-              duration: 4 + Math.random() * 2,
-              repeat: Infinity,
-              delay: Math.random() * 2,
-            }}
+            style={pos}
+            animate={{ y: [0, -40, 0], opacity: [0.2, 0.6, 0.2] }}
+            transition={{ duration: 4 + ((i * 0.23) % 2), repeat: Infinity, delay: (i * 0.17) % 2 }}
           />
         ))}
       </div>
@@ -53,7 +59,7 @@ export default function FinalCTA() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full glass mb-8 border border-white/20"
           >
-            <Sparkles className="w-5 h-5 text-vibe-purple" />
+            <Sparkles className="w-5 h-5 text-vibe-teal" />
             <span className="font-semibold">Start Creating Today</span>
           </motion.div>
 
@@ -64,7 +70,7 @@ export default function FinalCTA() {
             </span>
           </h2>
 
-          <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-2xl mx-auto">
+          <p className="text-xl md:text-2xl text-gray-600 mb-12 max-w-2xl mx-auto">
             Join thousands of creators building the future of social gaming
           </p>
 
@@ -79,23 +85,23 @@ export default function FinalCTA() {
               href="https://play.google.com/store/apps/details?id=com.nextap.vibebrews&pcampaignid=web_share"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-vibe-purple to-vibe-blue rounded-full font-bold text-lg hover:scale-105 transition-transform duration-300 glow-purple"
+              className="inline-flex items-center gap-3 px-10 py-5 bg-vibe-orange rounded-full font-bold text-lg text-white hover:scale-105 transition-transform duration-300 glow-orange hover:bg-vibe-orange/90"
               data-testid="final-cta-download-btn"
             >
               <Download className="w-6 h-6" />
               Download for Android
             </a>
 
-            {/* QR Code Placeholder */}
+            {/* QR Code */}
             <div className="glass rounded-2xl p-4">
-              <div className="w-32 h-32 bg-white rounded-xl flex items-center justify-center">
-                {/* [IMAGE: QR Code linking to Play Store. Dimension: 128x128px] */}
-                <div className="text-center">
-                  <Download className="w-8 h-8 mx-auto mb-1 text-vibe-dark" />
-                  <p className="text-xs text-vibe-dark font-bold">QR Code</p>
-                </div>
+              <div className="w-32 h-32 bg-white rounded-xl flex items-center justify-center overflow-hidden">
+                <img
+                  src="/QR_code.png"
+                  alt="QR Code to download VibeBrews from Play Store"
+                  className="w-full h-full object-contain"
+                />
               </div>
-              <p className="text-xs text-gray-400 mt-2 text-center">Scan to download</p>
+              <p className="text-xs text-gray-500 mt-2 text-center">Scan to download</p>
             </div>
           </motion.div>
 
@@ -106,16 +112,16 @@ export default function FinalCTA() {
             transition={{ delay: 0.6 }}
             className="max-w-md mx-auto"
           >
-            <p className="text-sm text-gray-400 mb-4">Get updates on new features and releases</p>
+            <p className="text-sm text-gray-600 mb-4">Get updates on new features and releases</p>
             <div className="flex gap-2">
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-1 px-6 py-3 rounded-full bg-white/10 border border-white/20 focus:border-vibe-purple focus:outline-none transition-colors"
+                className="flex-1 px-6 py-3 rounded-full bg-vibe-blue/5 border border-vibe-teal/30 focus:border-vibe-teal focus:outline-none transition-colors text-gray-800"
                 data-testid="newsletter-input"
               />
               <button
-                className="px-6 py-3 bg-vibe-purple rounded-full font-semibold hover:bg-vibe-purple/80 transition-colors"
+                className="px-6 py-3 bg-vibe-teal rounded-full font-semibold text-white hover:bg-vibe-teal/80 transition-colors"
                 data-testid="newsletter-submit-btn"
               >
                 Subscribe

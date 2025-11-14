@@ -1,8 +1,8 @@
-# VibeGames Marketing Website
+# VibeBrews Marketing Website
 
 ## 🎮 Overview
 
-World-class marketing website for VibeGames - an AI-powered game creation platform that combines TikTok-style discovery with conversational AI game creation.
+World-class marketing website for VibeBrews - an AI-powered game creation platform that combines TikTok-style discovery with conversational AI game creation. Brew the Vibe - Create, Play, Explore.
 
 ## ✨ Features
 
@@ -53,9 +53,36 @@ Open [http://localhost:3000](http://localhost:3000) to view the site.
 ### Build for Production
 
 ```bash
-yarn build
-yarn start
+npm install
+npm run build
+npm start
 ```
+
+Visit [http://localhost:3000](http://localhost:3000) to test the production build.
+
+## 🚀 Production Deployment
+
+**Your website is production-ready!** See deployment options:
+
+- **Quick Start**: See `PRODUCTION_QUICKSTART.md` in the root directory
+- **Full Guide**: See `DEPLOYMENT.md` in the root directory
+
+### Fastest Deployment (Vercel)
+
+1. Go to [vercel.com](https://vercel.com)
+2. Drag and drop the `frontend` folder
+3. Done! Your site is live with HTTPS
+
+### Environment Variables
+
+Create `.env.local` in the `frontend` folder (optional):
+
+```env
+NEXT_PUBLIC_GA_ID=G-YOUR-ACTUAL-ID
+NEXT_PUBLIC_SITE_URL=https://yourdomain.com
+```
+
+Or set them in your hosting platform's dashboard.
 
 ## 📊 Google Analytics Setup
 
@@ -167,4 +194,4 @@ For questions or support, reach out via the contact form on the website.
 
 ---
 
-**Built with ❤️ for the VibeGames community**
+**Built with ❤️ for the VibeBrews community**

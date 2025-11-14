@@ -15,7 +15,7 @@
 3. **Create a new property** (if you don't have one):
    - Click "Admin" (bottom left)
    - Click "Create Property"
-   - Name: "VibeGames Website"
+   - Name: "VibeBrews Website"
    - Timezone: Your timezone
    - Currency: Your currency
    - Click "Next"
@@ -24,8 +24,8 @@
 
 4. **Set up Data Stream**:
    - Platform: "Web"
-   - Website URL: `https://vibegames.com` (or your domain)
-   - Stream name: "VibeGames Website"
+   - Website URL: `https://vibebrews.com` (or your domain)
+   - Stream name: "VibeBrews Website"
    - Click "Create stream"
 
 5. **Copy Measurement ID**:
@@ -130,7 +130,7 @@ onSubmit={() => {
 ```typescript
 onPlay={() => {
   gtag('event', 'video_play', {
-    video_title: 'VibeGames Demo'
+    video_title: 'VibeBrews Demo'
   })
 }}
 ```
